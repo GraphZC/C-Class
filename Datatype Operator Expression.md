@@ -247,8 +247,8 @@ Result: 2
 
 ตัวอย่างการแปลง
 
-Character <--> integer
-boolean <--> integer
+Character <--> integer  
+boolean <--> integer  
 
 ### Example
 
