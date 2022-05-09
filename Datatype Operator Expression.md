@@ -80,7 +80,140 @@ int main() {
 }
 ```
 
-### Type Casting
+## Boolean
+
+ตามปกติภาษา C จะไม่มีตัวแปรประเภท boolean แต่เราจะใช้ตัวเลขหรือตัวอักษรมาเป็นค่าความจริงแทน
+
+**True**
+
+- ตัวเลขทุกค่าที่ไม่ใช่ 0
+- Chacter ทุกตัวที่ไม่ใช่ Null Character ('\0')
+
+**False**
+
+- ตัวเลขที่เป็น 0
+- Null Character ('\0')
+
+## String
+
+จะเห็นว่าภาษา C ก็ไม่มี Data type String เช่นกันแต่ตามที่เราทราบว่า String ก็คือสายของอักขระที่มี อักขระ หรือ Character มาเชื่อมต่อกันนั่นเอง ซึ่งเราก็จะใช้เป็น Character Array แทน
+
+```c
+#include <stdio.h>
+
+int main() {
+    char str2[10] = "String 2"; // เป็นการสร้าง String ที่มีการกำหนดขนาดมีความปลอดภัย
+    char str1[] = "String 1"; // เป็นการสร้าง String ที่ไม่ได้มีการกำหนดขนาด แบบนี้ไม่ควรทำเพราะอาจจะเกิด Secmentation Fault (การ Access Memory ที่ไม่สามารถ Access ได้)
+}
+```
+
+**เพิ่มเติม** การกำหนดขนาดของ String นั้นเราควรจะเผื่อไว้ 1 ตัวให้กำกับ Null Character (ตัวหยุดของ String)
+
+## Operator
+
+Operator หรือตัวดำเนินการของภาษา C โดยจะมี Operator 2 แบบใหญ่ๆ
+
+- **Unary Operator** คือเป็นตัวดำเนินการที่ดำเนินการกับ Operand 1 ตัว
+- **Binary Operator** คือเป็นตัวแปรที่ดำเนินการกับ Operand 2 ตัว
+
+ซึ่งก็จะแบ่งย่อยลงไปอีก ซึ่งแต่ละ Operator ก็จะมีการเรียงความสำคัญที่ต่างกันดังตาราง
+
+![PrecedenceTable](https://iamgraph.tk/img-md/C-Learning/C-Operator-Precedence.png)
+
+ตัวที่อยู่สูงกว่า (Precedence สูงกว่า) โปรแกรมก็จะทำ Operator นั้นๆก่อนตัวอื่น แล้ว Operator ยังมีคุณสมบัติในการที่จะ Chain กันได้อีก เช่น
+
+```c
+#include <stdio.h>
+
+int main() {
+    int x;
+    int y;
+    x = 5 + 2 * 2;
+    y = x = 10;
+}
+```
+
+### Arithmetic Operator
+
+ตัวดำเนินการทางคณิตศาสตร์จะประกอบด้วย
+
+| Operator |  Description   |
+| :------: | :------------: |
+|    +     |    Addition    |
+|    -     |   Subtracts    |
+|    *     | Multiplication |
+|    /     |    Division    |
+|    %     |     Modulo     |
+|    ++    |    Increase    |
+|    --    |    Decrease    |
+
+### Relational Operators
+
+ตัวดำเนินการที่เอาไว้เปรียบเทียบ
+
+| Operator |      Description      |
+| :------: | :-------------------: |
+|    ==    |       Equality        |
+|    !=    |      Inequality       |
+|    >     |        Greater        |
+|    >=    |  Greater or equal to  |
+|    <     |       Less than       |
+|    <=    | Less than or equal to |
+
+### Logical Operators
+
+ตัวดำเนินการเปรียบเทียบทาง Logical
+
+| Operator | Description |
+| :------: | :---------: |
+|    &&    | Logical AND |
+|   \|\|   | Logical OR  |
+|    !     | Logical NOT |
+
+### Bitwise Operators
+
+ตัวเดินการกับ Bit
+
+| Operator |       Description       |
+| :------: | :---------------------: |
+|    &     |       Binary AND        |
+|    \|    |        Binary OR        |
+|    ^     |       Binary XOR        |
+|    ~     | Binary One's compliment |
+|    <<    |    Binary Left Shift    |
+|    >>    |   Binary Right Shift    |
+
+### Assignment Operators
+
+เป็น Operator ที่ใช้สำหรับการกำหนดค่าให้กับตัวแปร
+
+| Operator |             Description             |
+| :------: | :---------------------------------: |
+|    =     |             Assignment              |
+|    +=    |         Add and assignment          |
+|    -=    |       Subtract and assignment       |
+|    *=    |       Multiply and assignment       |
+|    /=    |        Divide and assignment        |
+|    %=    |       Modulus and assignment        |
+|   <<=    |      Left SHIFT and assignment      |
+|   >>=    |     Right SHIFT and assignment      |
+|    &=    |     Bitwise AND and assignment      |
+|   \|=    |      Bitwise OR and assignment      |
+|    ^=    | Bitwise Exclusive OR and assignment |
+
+### Misc Opeators
+
+| Operator |                    Description                    |
+| :------: | :-----------------------------------------------: |
+| sizeof() |         Return size of a variable or type         |
+|    &     |          Return the address of variable           |
+|    *     |               Pointer to a variable               |
+|   ? :    | Condition Expression [ Condition ? true : false ] |
+|    ,     |        Comma Operator (Connect expression)        |
+
+## Type Conversion
+
+### Explicit Type Conversion
 
 เราสามารถ Casting Type ของตัวแปรได้ (แต่ไม่ได้เขียนทับค่าของตัวแปรนั้นๆ) โดยการใช้
 
@@ -105,31 +238,40 @@ Result: 2
 
 จะสังเกตว่าจะไม่มีการปัดเศษขึ้นแต่จะเป็นการตัดเศษทิ้งเลย
 
-## Boolean
+### Implicit Type Conversion
 
-ตามปกติภาษา C จะไม่มีตัวแปรประเภท boolean แต่เราจะใช้ตัวเลขหรือตัวอักษรมาเป็นค่าความจริงแทน
+ในภาษาซีการที่นำตัวแปรมากระทำกันผ่าน Operator Compiler จะทำการแปลง Type ที่ Narrow -> Wider เพื่อไม่ใช้เสียข้อมูลไป
 
-**True**
+![implicit type converison](https://www.geeksforgeeks.org/wp-content/uploads/Implicit-Type-Conversion-in-c.png)
+แหล่งที่มา [GeeksForGeek](https://www.geeksforgeeks.org/type-conversion-c/)
 
-- ตัวเลขทุกค่าที่ไม่ใช่ 0
-- Chacter ทุกตัวที่ไม่ใช่ Null Character ('\0')
+ตัวอย่างการแปลง
 
-**False**
+Character <--> integer
+boolean <--> integer
 
-- ตัวเลขที่เป็น 0
-- Null Character ('\0')
+### Example
 
-## String
-
-จะเห็นว่าภาษา C ก็ไม่มี Data type String เช่นกันแต่ตามที่เราทราบว่า String ก็คือสายของอักขระที่มี อักขระ หรือ Character มาเชื่อมต่อกันนั่นเอง ซึ่งเราก็จะใช้เป็น Character Array แทน
+ในบางกรณีเราอาจจะใช้ใน Expression ที่กระทำกันแบบคนละ Type ลองพิจารณา Code ข้างล่าง
 
 ```c
 #include <stdio.h>
 
 int main() {
-    char str1[] = "String 1"; // เป็นการสร้าง String ที่ไม่ได้มีการกำหนดขนาด แบบนี้ไม่ควรทำเพราะอาจจะเกิด Secmentation Fault (การ Access Memory ที่ไม่สามารถ Access ได้)
-    char str2[10] = "String 2"; // เป็นการสร้าง String ที่มีการกำหนดขนาดมีความปลอดภัย
+    int a = 5;
+    int b = 1;
+    printf("Result: %f", b / a);
 }
 ```
 
-**เพิ่มเติม** การกำหนดขนาดของ String นั้นเราควรจะเผื่อไว้ 1 ตัวให้กำกับ Null Character (ตัวหยุดของ String)
+เราจะหยิบ Type casting เข้ามาช่วย
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5;
+    int b = 1;
+    printf("Result: %d", b / (float) a);
+}
+```
