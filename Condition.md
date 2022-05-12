@@ -1,4 +1,4 @@
-# C Programming Part 1 - 2
+# C Programming Part 2 - 2
 
 By Tanaroeg  O-Charoen
 
