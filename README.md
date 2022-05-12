@@ -7,7 +7,7 @@
 3. [Datatype](Datatype%20Operator%20Expression.md#data-type)
 4. [Operator](Datatype%20Operator%20Expression.md#operator)
 5. [Input/Output](Input%20Output.md)
-6. Condition
+6. [Condition](Condition.md)
 7. Loop
 8. Function
 9. Pointer
