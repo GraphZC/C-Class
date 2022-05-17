@@ -156,6 +156,27 @@ int main() {
 }
 ```
 
+```c
+#include <stdio.h>
+
+int main() {
+    int ages;
+
+    printf("Enter your ages: ");
+    scanf("%d", &ages);
+
+    if (ages >= 0) {
+        if (ages >= 18) {
+            printf("You can pass.");
+        } else {
+            printf("You can't pass");
+        }
+    } else {
+        printf("Invalid ages!");
+    }
+}
+```
+
 ### switch..case
 
 จะใช้ในการเช็คเงื่อนไขเหมือนกันแต่การเช็คนั้นก็จะมี syntax ที่แตกต่างกันไป โดย if..else นั้นจะเป็นการเช็คโดยใช้ Expression แต่ switch..case จะเป็นการเช็คแบบการใช้ค่าคงที่
