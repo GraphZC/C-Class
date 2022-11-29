@@ -118,7 +118,7 @@ Operator หรือตัวดำเนินการของภาษา C
 
 ซึ่งก็จะแบ่งย่อยลงไปอีก ซึ่งแต่ละ Operator ก็จะมีการเรียงความสำคัญที่ต่างกันดังตาราง
 
-![PrecedenceTable](https://iamgraph.tk/img-md/C-Learning/C-Operator-Precedence.png)
+![PrecedenceTable](http://xeratol.com/wp-content/uploads/2014/09/C-operator-precedence.png)
 
 ตัวที่อยู่สูงกว่า (Precedence สูงกว่า) โปรแกรมก็จะทำ Operator นั้นๆก่อนตัวอื่น แล้ว Operator ยังมีคุณสมบัติในการที่จะ Chain กันได้อีก เช่น
 
